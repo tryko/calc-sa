@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Deck :cardsLeftInDeck="multiplyerCards" />
+    <div class="players-container">
+      <PlayerBoard />
+      <PlayerBoard />
+    </div>
   </div>
 </template>
 
-<script>
-import HelloWorld from "./components/HelloWorld.vue";
+<script lang="js">
+import { mapState } from "vuex";
+import Deck from "./components/Deck.vue";
+import PlayerBoard from "./components/PlayerBoard.vue";
 
 export default {
-  name: "app",
   components: {
-    HelloWorld
+    Deck,
+    PlayerBoard
+  },
+  computed: {
+    ...mapState(["multiplyerCards"])
+  },
+  mounted() {
+    console.log(this.multiplyerCards);
   }
 };
 </script>
@@ -24,5 +35,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+.players-container {
+  display: flex;
 }
 </style>
