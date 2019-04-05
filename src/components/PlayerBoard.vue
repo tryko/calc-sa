@@ -5,10 +5,7 @@
       v-for="(multiplyerType, i) in multiplyerCardsTypes"
       :key="i"
     >
-      <MultiplyerCards
-        :cardsType="multiplyerType"
-        wrapperClassType="player-deck"
-      />
+      <MultiplyerCards :cardsType="multiplyerType" />
       <div class="player-cell">0</div>
       <div class="player-cell">score</div>
     </div>

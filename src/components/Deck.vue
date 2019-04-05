@@ -7,6 +7,7 @@
     >
       <div class="type-of-cards">{{ multiplyerType }}</div>
       <MultiplyerCards
+        :cards="cardsLeftInDeck[multiplyerType]"
         :cardsType="multiplyerType"
         wrapperClassType="board-deck"
       />
