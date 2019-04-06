@@ -5,7 +5,11 @@
       v-for="(multiplyerType, i) in multiplyerCardsTypes"
       :key="i"
     >
-      <MultiplyerCards :cardsType="multiplyerType" />
+      <MultiplyerCards
+        :cards="playerCards[multiplyerType]"
+        :cardsType="multiplyerType"
+        :owner="playerId"
+      />
       <div class="player-cell">0</div>
       <div class="player-cell">score</div>
     </div>
@@ -16,6 +20,7 @@
 import MultiplyerCards from "./MultiplyerCards.vue";
 
 export default {
+  props:["playerCards","playerId"],
   data() {
     return {
       multiplyerCardsTypes: ["agri", "tools", "huts", "meeple"]
@@ -33,7 +38,7 @@ export default {
   display: flex;
 }
 .player-cell {
-  margin: 0 10px 0 10px;
-  align-self: center;
+  margin: 20px 10px 0 10px;
+  align-self: end;
 }
 </style>

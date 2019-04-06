@@ -10,20 +10,17 @@
         :key="card"
         class="box"
         :multiplyBy="scalar"
+        :cardType="cardsType"
+        :owner="owner"
       />
     </div>
-
-    <!-- <Card class="box" :multiplyBy="2" />
-      <Card class="box" :multiplyBy="2" />
-      <Card class="box" :multiplyBy="1" />
-      <Card class="box" :multiplyBy="1" /> -->
   </div>
 </template>
 
 <script lang="ts">
 import Card from "./Card.vue";
 export default {
-  props: ["cardsType", "wrapperClassType", "cards"],
+  props: ["cardsType", "owner", "cards"],
   components: { Card }
 };
 </script>
@@ -32,6 +29,8 @@ export default {
 <style scoped>
 .multiplyer-cards {
   margin-bottom: 40px;
+  min-height: 200px;
+  min-width: 200px;
 }
 .sub-deck-of-type {
   display: flex;

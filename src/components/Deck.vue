@@ -9,7 +9,8 @@
       <MultiplyerCards
         :cards="cardsLeftInDeck[multiplyerType]"
         :cardsType="multiplyerType"
-        wrapperClassType="board-deck"
+        owner="deck"
+        :currentPlayer="currentPlayer"
       />
     </div>
   </div>
@@ -19,7 +20,7 @@
 import MultiplyerCards from "./MultiplyerCards.vue";
 
 export default {
-  props: ["cardsLeftInDeck"],
+  props: ["cardsLeftInDeck","currentPlayer"],
   data() {
     return {
       multiplyerCardsTypes: ["agri", "tools", "huts", "meeple"]

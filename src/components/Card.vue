@@ -1,16 +1,26 @@
 <template>
-  <div :class="boxClass">{{ multiplyBy }}</div>
+  <div :class="boxClass" @click="cardClicked">{{ multiplyBy }}</div>
 </template>
 
 <script lang="ts">
 export default {
-  props: ["boxClass", "multiplyBy"]
+  props: ["boxClass", "multiplyBy", "cardType", "owner"],
+  methods: {
+    cardClicked() {
+      if (this.owner === "deck") {
+        this.$store.commit("addCardToPlayer", {
+          cardType: this.cardType,
+          multiplyBy: this.multiplyBy
+        });
+      }
+    }
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.board-deck {
+/* .board-deck {
   display: grid;
   grid-gap: 5px;
   grid-template-columns: 100px 100px 100px;
@@ -28,7 +38,7 @@ export default {
   color: #444;
   background-color: inherit;
   padding: 30px;
-}
+} */
 
 .box {
   background-color: lightseagreen;
@@ -38,12 +48,12 @@ export default {
   border: 1px solid black;
 }
 
-.box-invisible {
-  background-color: lightseagreen;
-  color: #fff;
-  padding: 10px;
-  font-size: 150%;
-  border: 1px solid black;
-  visibility: hidden;
-}
+/* .box-invisible {
+    background-color: lightseagreen;
+    color: #fff;
+    padding: 10px;
+    font-size: 150%;
+    border: 1px solid black;
+    visibility: hidden;
+  } */
 </style>

@@ -1,9 +1,18 @@
 <template>
   <div id="app">
-    <Deck :cardsLeftInDeck="multiplyerCardsInDeck" />
-    <div>
-      <PlayerBoard />
-      <PlayerBoard />
+    <Deck
+      :cardsLeftInDeck="multiplyerCardsInDeck"
+      :currentPlayer="currentPlayer"
+    />
+    <div class="players-container">
+      <PlayerBoard
+        playerId="player1"
+        :playerCards="multiplyerCardsOfPlayers[0]"
+      />
+      <PlayerBoard
+        playerId="player2"
+        :playerCards="multiplyerCardsOfPlayers[1]"
+      />
     </div>
   </div>
 </template>
@@ -19,7 +28,7 @@ export default {
     PlayerBoard
   },
   computed: {
-    ...mapState(["multiplyerCardsInDeck"])
+    ...mapState(["multiplyerCardsInDeck","multiplyerCardsOfPlayers", "currentPlayer"])
   },
   mounted() {
     console.log(this.multiplyerCardsInDeck);

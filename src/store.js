@@ -4,6 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const state = {
+  currentPlayer: "player1",
   multiplyerCardsInDeck: {
     // the index represent the scalar of multiplyer
     // e.g: index 0 scalar 0 and number of scalar cards is also 0
@@ -67,7 +68,11 @@ const getters = {
 
 export default new Vuex.Store({
   state,
-  mutations: {},
+  mutations: {
+    addCardToPlayer(state, clickedCard) {
+      console.log(clickedCard);
+    }
+  },
   getters,
   actions: {}
 });
