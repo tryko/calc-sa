@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="deck-container">
     <div
       class="all-multiplyer-cards"
       v-for="(multiplyerType, i) in multiplyerCardsTypes"
@@ -35,6 +35,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .all-multiplyer-cards {
+  display: flex;
+}
+
+.deck-container {
   display: flex;
 }
 

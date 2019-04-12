@@ -1,5 +1,5 @@
 <template>
-  <div :class="boxClass" @click="cardClicked">{{ multiplyBy }}</div>
+  <div class="box" @click="cardClicked">{{ multiplyBy }}</div>
 </template>
 
 <script lang="ts">

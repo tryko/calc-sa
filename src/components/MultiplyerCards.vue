@@ -37,12 +37,4 @@ export default {
   margin-top: 10px;
   margin-left: 50px;
 }
-
-.box {
-  background-color: lightseagreen;
-  color: #fff;
-  padding: 10px;
-  font-size: 150%;
-  border: 1px solid black;
-}
 </style>

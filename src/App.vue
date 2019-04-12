@@ -5,14 +5,14 @@
       :currentPlayer="currentPlayer"
     />
     <div class="players-container">
-      <PlayerBoard
+      <!-- <PlayerBoard
         playerId="player1"
         :playerCards="multiplyerCardsOfPlayers[0]"
       />
       <PlayerBoard
         playerId="player2"
         :playerCards="multiplyerCardsOfPlayers[1]"
-      />
+      /> -->
     </div>
   </div>
 </template>
