@@ -1,6 +1,6 @@
 <template>
   <div class="deck-container">
-    <div
+    <!-- <div
       class="all-multiplyer-cards"
       v-for="(multiplyerType, i) in multiplyerCardsTypes"
       :key="i"
@@ -12,7 +12,7 @@
         owner="deck"
         :currentPlayer="currentPlayer"
       />
-    </div>
+    </div> -->
   </div>
 </template>
 

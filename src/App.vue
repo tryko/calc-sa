@@ -28,7 +28,7 @@ export default {
     PlayerBoard
   },
   computed: {
-    ...mapState(["multiplyerCardsInDeck","multiplyerCardsOfPlayers", "currentPlayer"])
+    ...mapState(["multiplyerCardsInDeck","multiplyerCardsOfPlayers","artifactCards", "currentPlayer"])
   },
   mounted() {
     console.log(this.multiplyerCardsInDeck);

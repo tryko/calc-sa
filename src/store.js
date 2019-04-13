@@ -59,7 +59,30 @@ const state = {
       }
     }
   ],
-  artifactCards: []
+  artifactCards: {
+    cart: 2,
+    figure: 2,
+    flute: 2,
+    wheel: 2,
+    tablet: 2,
+    pot: 2,
+    plant: 2,
+    patch: 2
+  },
+  huts: {
+    hut1: {
+      wood: 2,
+      brick: 1
+    },
+    hut2: {
+      any: 3,
+      total: 5
+    },
+    hut3: {
+      any: 4,
+      total: 4
+    }
+  }
 };
 
 const getters = {
