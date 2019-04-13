@@ -8,10 +8,10 @@ const state = {
   multiplyerCardsInDeck: {
     // the index represent the scalar of multiplyer
     // e.g: index 0 scalar 0 and number of scalar cards is also 0
-    agri: [0, 2, 3, 0],
-    tools: [0, 2, 3, 0],
-    meeple: [0, 2, 3, 0],
-    huts: [0, 2, 3, 1]
+    1: { agri: 2, extra: "roll" },
+    2: { agri: 1, extra: { agrilvl: 1 } },
+    3: { agri: 1, extra: { food: 3 } },
+    4: { arti: 1, extra: "roll" }
   },
   multiplyerCardsOfPlayers: [
     {
