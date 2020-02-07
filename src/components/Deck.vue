@@ -17,7 +17,7 @@
 </template>
 
 <script lang="js">
-import MultiplyerCards from "./MultiplyerCards.vue";
+// import MultiplyerCards from "./MultiplyerCards.vue";
 
 export default {
   props: ["cardsLeftInDeck","currentPlayer"],
@@ -27,7 +27,7 @@ export default {
     };
   },
   components: {
-    MultiplyerCards
+    // MultiplyerCards
   }
 };
 </script>

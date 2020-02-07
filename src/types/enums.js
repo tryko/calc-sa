@@ -29,7 +29,7 @@ const artifactsEnum = {
   flute: 8
 };
 
-export const createMultiPlyerCards = () => {
+export const allCards = () => {
   const {
     figure,
     patch,
