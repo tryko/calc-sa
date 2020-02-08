@@ -1,33 +1,32 @@
 <template>
   <div class="deck-container">
-    <!-- <div
+    <div
       class="all-multiplyer-cards"
-      v-for="(multiplyerType, i) in multiplyerCardsTypes"
+      v-for="(type, i) in multiplyerCardsTypes"
       :key="i"
     >
-      <div class="type-of-cards">{{ multiplyerType }}</div>
+      <div class="type-of-cards">{{ type }}</div>
       <MultiplyerCards
-        :cards="cardsLeftInDeck[multiplyerType]"
-        :cardsType="multiplyerType"
+        :cards="deckCards[type]"
+        :cardsType="type"
         owner="deck"
-        :currentPlayer="currentPlayer"
       />
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script lang="js">
-// import MultiplyerCards from "./MultiplyerCards.vue";
+import MultiplyerCards from "./MultiplyerCards.vue";
 
 export default {
-  props: ["cardsLeftInDeck","currentPlayer"],
+  props: ["deckCards"],
   data() {
     return {
-      multiplyerCardsTypes: ["agri", "tools", "huts", "meeple"]
+      multiplyerCardsTypes: ["agri", "tools", "huts", "meeple","arti"]
     };
   },
   components: {
-    // MultiplyerCards
+    MultiplyerCards
   }
 };
 </script>
@@ -39,7 +38,7 @@ export default {
 }
 
 .deck-container {
-  display: flex;
+  /* display: flex; */
 }
 
 .type-of-cards {

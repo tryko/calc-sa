@@ -1,10 +1,12 @@
 <template>
-  <div class="box" @click="cardClicked">{{ multiplyBy }}</div>
+  <div class="box" @click="cardClicked">
+    <img src="./../assets/agri-1-ex-1stone.PNG" alt="" />
+  </div>
 </template>
 
 <script lang="ts">
 export default {
-  props: ["boxClass", "multiplyBy", "cardType", "owner"],
+  props: ["boxClass", "multiplyBy", "cardType", "owner", "imgURL"],
   methods: {
     cardClicked() {
       if (this.owner === "deck") {
@@ -43,6 +45,8 @@ export default {
 .box {
   background-color: lightseagreen;
   color: #fff;
+  height: 70px;
+  width: 50px;
   padding: 10px;
   font-size: 150%;
   border: 1px solid black;

@@ -2,30 +2,31 @@
   <div id="app">
     1
     <div>
-      1.1 here will be board game it will contain: backgoround image
+      <Deck :deckCards="getDeckCards" />
     </div>
     <div>
       1.2 holds the players information
     </div>
-    <Deck
-      :cardsLeftInDeck="multiplyerCardsInDeck"
-      :currentPlayer="currentPlayer"
-    />
-    <div class="players-container">
+    <!-- <Deck :cardsLeftInDeck="getDeckCards" :currentPlayer="currentPlayer" /> -->
+    <div>
+      <!-- <div class="players-container"> -->
       <!-- <PlayerBoard
-        playerId="player1"
-        :playerCards="multiplyerCardsOfPlayers[0]"
-      />
-      <PlayerBoard
-        playerId="player2"
-        :playerCards="multiplyerCardsOfPlayers[1]"
-      /> -->
+          playerId="player1"
+          :playerCards="multiplyerCardsOfPlayers[0]"
+        />
+        <PlayerBoard
+          playerId="player2"
+          :playerCards="multiplyerCardsOfPlayers[1]"
+        /> -->
     </div>
   </div>
 </template>
 
 <script lang="js">
-import { mapState } from "vuex";
+import {
+  mapState,
+  mapGetters
+  } from "vuex";
 import Deck from "./components/Deck.vue";
 // import PlayerBoard from "./components/PlayerBoard.vue";
 
@@ -35,18 +36,19 @@ export default {
     // PlayerBoard
   },
   computed: {
-    ...mapState(["multiplyerCardsInDeck","multiplyerCardsOfPlayers","huts"])
+    ...mapState(["DeckCards","players"]),
+    ...mapGetters(['getDeckCards','getPlayerCards'])
   },
   mounted() {
-    console.log(this.multiplyerCardsInDeck);
-    console.log('huts::',this.huts);
+    console.log(this.DeckCards);
+    // console.log('huts::',this.huts);
   }
 };
 </script>
 
 <style>
 body {
-  background-image: url("./assets/stone-age-board.jpg");
+  /* background-image: url("./assets/stone-age-board.jpg"); */
   background-repeat: no-repeat;
 }
 

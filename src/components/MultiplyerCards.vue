@@ -1,17 +1,15 @@
 <template>
   <div class="multiplyer-cards">
     <div
-      v-for="(numOfCards, scalar) in cards"
-      :key="scalar"
+      v-for="(card, i) in cards"
+      :key="i + cardsType"
       class="sub-deck-of-type"
     >
       <Card
-        v-for="card in numOfCards"
-        :key="card"
         class="box"
-        :multiplyBy="scalar"
-        :cardType="cardsType"
-        :owner="owner"
+        :multiplyBy="card.value"
+        :cardType="card.type"
+        :imgURL="card.imgURL"
       />
     </div>
   </div>
@@ -31,6 +29,8 @@ export default {
   margin-bottom: 40px;
   min-height: 200px;
   min-width: 200px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .sub-deck-of-type {
   display: flex;
