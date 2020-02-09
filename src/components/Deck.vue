@@ -1,11 +1,6 @@
 <template>
   <div class="deck-container">
-    <div
-      class="all-multiplyer-cards"
-      v-for="(type, i) in multiplyerCardsTypes"
-      :key="i"
-    >
-      <div class="type-of-cards">{{ type }}</div>
+    <div v-for="(type, i) in multiplyerCardsTypes" :key="i">
       <MultiplyerCards
         :cards="deckCards[type]"
         :cardsType="type"
@@ -22,7 +17,7 @@ export default {
   props: ["deckCards"],
   data() {
     return {
-      multiplyerCardsTypes: ["agri", "tools", "huts", "meeple","arti"]
+      multiplyerCardsTypes: ["agri", "tools", "meeple", "arti", "hutsM", "huts"]
     };
   },
   components: {
@@ -33,17 +28,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.all-multiplyer-cards {
-  display: flex;
-}
-
 .deck-container {
-  /* display: flex; */
+  margin-left: 5px;
 }
 
 .type-of-cards {
   align-self: center;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
   width: 70px;

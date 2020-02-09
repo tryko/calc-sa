@@ -1,13 +1,8 @@
 <template>
   <div id="app">
-    1
     <div>
       <Deck :deckCards="getDeckCards" />
     </div>
-    <div>
-      1.2 holds the players information
-    </div>
-    <!-- <Deck :cardsLeftInDeck="getDeckCards" :currentPlayer="currentPlayer" /> -->
     <div>
       <!-- <div class="players-container"> -->
       <!-- <PlayerBoard
@@ -49,6 +44,7 @@ export default {
 <style>
 body {
   /* background-image: url("./assets/stone-age-board.jpg"); */
+  margin: 0;
   background-repeat: no-repeat;
 }
 
@@ -58,7 +54,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
   background-color: lightgray;
   display: flex;
   justify-content: space-between;

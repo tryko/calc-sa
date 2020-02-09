@@ -29,6 +29,36 @@ const artifacts = {
   flute: 8
 };
 
+const huts = [
+  { id: 1, imgURL: "hut-1b-1s-1g" },
+  { id: 2, imgURL: "hut-1b-1s-1g" },
+  { id: 3, imgURL: "hut-1b-2s" },
+  { id: 4, imgURL: "hut-1to7-any" },
+  { id: 5, imgURL: "hut-1to7-any" },
+  { id: 6, imgURL: "hut-1to7-any" },
+  { id: 7, imgURL: "hut-1w-1b-1g" },
+  { id: 8, imgURL: "hut-1w-1b-1g" },
+  { id: 9, imgURL: "hut-1w-1b-1s" },
+  { id: 10, imgURL: "hut-1w-1b-1s" },
+  { id: 11, imgURL: "hut-1w-1s-1g" },
+  { id: 12, imgURL: "hut-1w-1s-1g" },
+  { id: 13, imgURL: "hut-1w-2b" },
+  { id: 14, imgURL: "hut-1w-2s" },
+  { id: 15, imgURL: "hut-2b-1g" },
+  { id: 16, imgURL: "hut-2b-1g" },
+  { id: 17, imgURL: "hut-2s-1g" },
+  { id: 18, imgURL: "hut-2w-1b" },
+  { id: 19, imgURL: "hut-2w-1g" },
+  { id: 20, imgURL: "hut-2w-1s" },
+  { id: 21, imgURL: "hut-4res-1t" },
+  { id: 22, imgURL: "hut-4res-2t" },
+  { id: 23, imgURL: "hut-4res-3t" },
+  { id: 24, imgURL: "hut-4res-4t" },
+  { id: 25, imgURL: "hut-5res-1t" },
+  { id: 26, imgURL: "hut-5res-2t" },
+  { id: 27, imgURL: "hut-5res-3t" },
+  { id: 28, imgURL: "hut-5res-5t" }
+];
 export const allCards = () => {
   const { figure, field, pot, plant, tablet, clock, cart, flute } = artifacts;
   const {
@@ -62,12 +92,13 @@ export const allCards = () => {
         imgURL: "agri-1-ex-1stone"
       }
     ],
-    huts: [
-      { type: "huts", value: 3, extra: POINTS, imgURL: "hut-3-ex-3points" },
-      { type: "huts", value: 2, extra: ROLL, imgURL: "hut-2-ex-roll" },
-      { type: "huts", value: 2, extra: FOOD2, imgURL: "hut-2-ex-2f" },
-      { type: "huts", value: 1, extra: ROLL, imgURL: "hut-1-ex-roll" },
-      { type: "huts", value: 1, extra: FOOD4, imgURL: "hut-1-ex-f4" }
+    huts: huts,
+    hutsM: [
+      { type: "huts", value: 3, extra: POINTS, imgURL: "hutM-3-ex-3points" },
+      { type: "huts", value: 2, extra: ROLL, imgURL: "hutM-2-ex-roll" },
+      { type: "huts", value: 2, extra: FOOD2, imgURL: "hutM-2-ex-f2" },
+      { type: "huts", value: 1, extra: ROLL, imgURL: "hutM-1-ex-roll" },
+      { type: "huts", value: 1, extra: FOOD4, imgURL: "hutM-1-ex-f4" }
     ],
     tools: [
       { type: "tools", value: 2, extra: ROLL, imgURL: "tool-2-ex-roll" },
@@ -76,7 +107,6 @@ export const allCards = () => {
       { type: "tools", value: 1, extra: TOOLS3, imgURL: "tool-1-ex-3tools" },
       { type: "tools", value: 1, extra: TOOLS4, imgURL: "tool-1-ex-4tools" }
     ],
-
     meeple: [
       {
         type: "meepels",
@@ -112,8 +142,13 @@ export const allCards = () => {
     arti: [
       { type: "arti", value: pot, extra: ROLL, imgURL: "arti-pot-ex-roll" },
       { type: "arti", value: pot, extra: FOOD7, imgURL: "arti-pot-ex-f7" },
-      { type: "arti", value: plant, extra: ROLL, imgURL: "arti-plant-ex-roll" }, // to be changed to a special function to GIVE resource
-      { type: "arti", value: plant, extra: FOOD5, imgURL: "arti-plant-ex-f5" },
+      {
+        type: "arti",
+        value: plant,
+        extra: ROLL,
+        imgURL: "arti-branch-ex-2res"
+      }, // to be changed to a special function to GIVE resource
+      { type: "arti", value: plant, extra: FOOD5, imgURL: "arti-branch-ex-f5" },
       { type: "arti", value: cart, extra: ROLL, imgURL: "arti-cart-ex-roll" },
       {
         type: "arti",

@@ -26,15 +26,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .multiplyer-cards {
-  margin-bottom: 40px;
-  min-height: 200px;
-  min-width: 200px;
   display: flex;
   flex-wrap: wrap;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+  /* margin-bottom: 10px; */
+  width: 520px;
 }
 .sub-deck-of-type {
   display: flex;
-  margin-top: 10px;
-  margin-left: 50px;
+  margin-left: 5px;
 }
 </style>
