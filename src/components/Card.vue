@@ -29,8 +29,8 @@ export default {
 <style scoped>
 .image {
   object-fit: cover;
-  height: 60px;
-  width: 40px;
+  height: 50px;
+  width: 35px;
 }
 
 .box {

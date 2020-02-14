@@ -1,22 +1,21 @@
 export default {
-  agri: {
-    1: 0,
-    2: 0,
-    3: 0
-  },
-  tools: {
-    1: 0,
-    2: 0,
-    3: 0
-  },
-  meeple: {
-    1: 0,
-    2: 0,
-    3: 0
-  },
-  huts: {
-    1: 0,
-    2: 0,
-    3: 0
-  }
+  // agriM: [
+  //   { type: "agri", value: 2, imgURL: "agri-2-ex-roll" },
+  //   { type: "agri", value: 2, imgURL: "agri-2-ex-f3" },
+  //   { type: "agri", value: 1, imgURL: "agri-1-ex-roll" },
+  //   { type: "agri", value: 1, imgURL: "agri-1-ex-plusagri" },
+  //   {
+  //     type: "agri",
+  //     value: 1,
+
+  //     imgURL: "agri-1-ex-1stone"
+  //   }
+  // ],
+  agriM: [],
+  tools: [],
+  meeple: [],
+  artiOneM: [],
+  artiTwo: [],
+  hutsM: [],
+  huts: {}
 };

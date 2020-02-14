@@ -1,18 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <Deck :deckCards="getDeckCards" />
-    </div>
-    <div>
-      <!-- <div class="players-container"> -->
-      <!-- <PlayerBoard
-          playerId="player1"
-          :playerCards="multiplyerCardsOfPlayers[0]"
-        />
-        <PlayerBoard
-          playerId="player2"
-          :playerCards="multiplyerCardsOfPlayers[1]"
-        /> -->
+      <Board :cardOwners="cardOwners" />
     </div>
   </div>
 </template>
@@ -20,19 +9,18 @@
 <script lang="js">
 import {
   mapState,
-  mapGetters
   } from "vuex";
-import Deck from "./components/Deck.vue";
+import Board from "./components/Board.vue";
 // import PlayerBoard from "./components/PlayerBoard.vue";
 
 export default {
   components: {
-    Deck,
+    Board,
     // PlayerBoard
   },
   computed: {
-    ...mapState(["DeckCards","players"]),
-    ...mapGetters(['getDeckCards','getPlayerCards'])
+    ...mapState(["cardOwners"]),
+    // ...mapGetters(['getDeckCards','getPlayerCards'])
   },
   mounted() {
     console.log(this.DeckCards);
@@ -57,8 +45,5 @@ body {
   background-color: lightgray;
   display: flex;
   justify-content: space-between;
-}
-.players-container {
-  display: flex;
 }
 </style>

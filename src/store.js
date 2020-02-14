@@ -7,12 +7,34 @@ Vue.use(Vuex);
 const state = {
   currentPlayer: "player1",
   DeckCards: allCards(),
-  players: [playerCards, playerCards]
+  cardOwners: [
+    { id: "deck", cards: allCards() },
+    {
+      id: "playerOne",
+      agriM: 0,
+      tools: 0,
+      meeple: 0,
+      hutsM: 0,
+      artiOneM: 0,
+      artiTwo: 0,
+      cards: playerCards
+    },
+    {
+      id: "playerTwo",
+      agriM: 0,
+      tools: 0,
+      meeple: 0,
+      hutsM: 0,
+      artiOneM: 0,
+      artiTwo: 0,
+      cards: playerCards
+    }
+  ]
 };
 
 const getters = {
-  getDeckCards: state => state.DeckCards,
-  getPlayerCards: state => state.players
+  // getDeckCards: state => state.DeckCards,
+  // getPlayerCards: state => state.players
 };
 
 export default new Vuex.Store({
