@@ -1,11 +1,12 @@
 <template>
-  <div class="multiplyer-cards">
+  <div :class="'multiplyer-cards ' + cardsType">
     <div v-for="(card, i) in cards" :key="i + cardsType">
       <Card
-        class="box"
-        :multiplyBy="card.value"
-        :cardType="card.type"
+        :value="card.value"
+        :type="cardsType"
+        :id="card.id"
         :imgURL="card.imgURL"
+        :owner="owner"
       />
     </div>
   </div>
@@ -15,14 +16,6 @@
 import Card from "./Card.vue";
 export default {
   props: ["cardsType", "owner", "cards"],
-  methods: {
-    setClassName: type => {
-      const className =
-        "cards-sub-container" + " " + type === "huts" ? "huts" : "";
-      console.log(className);
-      return className;
-    }
-  },
   components: { Card }
 };
 </script>
@@ -31,19 +24,12 @@ export default {
 .multiplyer-cards {
   display: flex;
   flex-wrap: wrap;
-  min-height: 53px;
-
-  /* margin-bottom: 10px; */
-}
-.sub-deck-of-type {
-  display: flex;
-  margin-left: 5px;
-}
-
-.cards-sub-container {
-  min-height: 53px;
+  min-height: 65px;
+  padding: 5px 0 0 2px;
+  box-sizing: border-box;
+  border: 1px solid black;
 }
 .huts {
-  min-height: 200px;
+  min-height: 170px;
 }
 </style>

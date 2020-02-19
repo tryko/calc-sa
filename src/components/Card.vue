@@ -1,26 +1,37 @@
 <template>
-  <img :src="img" alt="" class="image" />
-
-  <!-- <div class="box" @click="cardClicked">
-  </div> -->
+  <div>
+    <img
+      :key="id"
+      :src="getImg"
+      alt=""
+      class="image box"
+      @click="cardClicked"
+    />
+  </div>
 </template>
 
 <script lang="ts">
 export default {
-  props: ["boxClass", "multiplyBy", "cardType", "owner", "imgURL"],
+  props: ["id", "value", "type", "owner", "imgURL"],
   data() {
     return {
-      img: require(`./../assets/${this.imgURL}.png`)
+      img: require(`./../assets/${this.imgURL}.png`),
+      bla: this.imgURL
     };
   },
   methods: {
     cardClicked() {
-      if (this.owner === "deck") {
-        this.$store.commit("addCardToPlayer", {
-          cardType: this.cardType,
-          multiplyBy: this.multiplyBy
-        });
-      }
+      this.$store.commit("addCardToPlayer", {
+        id: this.id,
+        type: this.type,
+        value: this.value,
+        owner: this.owner
+      });
+    }
+  },
+  computed: {
+    getImg() {
+      return require(`./../assets/${this.imgURL}.png`);
     }
   }
 };
@@ -35,8 +46,8 @@ export default {
 
 .box {
   background-color: lightseagreen;
-
-  font-size: 150%;
+  box-sizing: border-box;
+  margin-left: 2px;
   border: 1px solid black;
 }
 </style>

@@ -1,21 +1,14 @@
-export default {
-  // agriM: [
-  //   { type: "agri", value: 2, imgURL: "agri-2-ex-roll" },
-  //   { type: "agri", value: 2, imgURL: "agri-2-ex-f3" },
-  //   { type: "agri", value: 1, imgURL: "agri-1-ex-roll" },
-  //   { type: "agri", value: 1, imgURL: "agri-1-ex-plusagri" },
-  //   {
-  //     type: "agri",
-  //     value: 1,
-
-  //     imgURL: "agri-1-ex-1stone"
-  //   }
-  // ],
-  agriM: [],
-  tools: [],
-  meeple: [],
-  artiOneM: [],
-  artiTwo: [],
-  hutsM: [],
-  huts: {}
+import { CARD_TYPES } from "./enums";
+function createPlayerObj() {
+  const obj = {};
+  for (let key in CARD_TYPES) {
+    obj[key] = [];
+  }
+  return obj;
+}
+export const playerOneCards = {
+  ...createPlayerObj()
+};
+export const playerTwoCards = {
+  ...createPlayerObj()
 };

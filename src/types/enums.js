@@ -1,3 +1,13 @@
+const uuidv4 = require("uuid/v4");
+export const CARD_TYPES = {
+  agriM: "agriM",
+  toolsM: "toolsM",
+  meepleM: "meepleM",
+  artiOneM: "artiOneM",
+  artiTwoM: "artiTwoM",
+  hutsM: "hutsM",
+  huts: "huts"
+};
 const cardExtra = {
   ROLL: "ROLL",
   FOOD1: "FOOD1",
@@ -30,34 +40,34 @@ const artifacts = {
 };
 
 export const huts = [
-  { id: 1, imgURL: "hut-1b-1s-1g" },
-  { id: 2, imgURL: "hut-1b-1s-1g" },
-  { id: 3, imgURL: "hut-1b-2s" },
-  { id: 4, imgURL: "hut-1to7-any" },
-  { id: 5, imgURL: "hut-1to7-any" },
-  { id: 6, imgURL: "hut-1to7-any" },
-  { id: 7, imgURL: "hut-1w-1b-1g" },
-  { id: 8, imgURL: "hut-1w-1b-1g" },
-  { id: 9, imgURL: "hut-1w-1b-1s" },
-  { id: 10, imgURL: "hut-1w-1b-1s" },
-  { id: 11, imgURL: "hut-1w-1s-1g" },
-  { id: 12, imgURL: "hut-1w-1s-1g" },
-  { id: 13, imgURL: "hut-1w-2b" },
-  { id: 14, imgURL: "hut-1w-2s" },
-  { id: 15, imgURL: "hut-2b-1g" },
-  { id: 16, imgURL: "hut-2b-1g" },
-  { id: 17, imgURL: "hut-2s-1g" },
-  { id: 18, imgURL: "hut-2w-1b" },
-  { id: 19, imgURL: "hut-2w-1g" },
-  { id: 20, imgURL: "hut-2w-1s" },
-  { id: 21, imgURL: "hut-4res-1t" },
-  { id: 22, imgURL: "hut-4res-2t" },
-  { id: 23, imgURL: "hut-4res-3t" },
-  { id: 24, imgURL: "hut-4res-4t" },
-  { id: 25, imgURL: "hut-5res-1t" },
-  { id: 26, imgURL: "hut-5res-2t" },
-  { id: 27, imgURL: "hut-5res-3t" },
-  { id: 28, imgURL: "hut-5res-5t" }
+  { id: uuidv4(), type: "huts", imgURL: "hut-1b-1s-1g" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1b-1s-1g" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1b-2s" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1to7-any" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1to7-any" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1to7-any" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1w-1b-1g" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1w-1b-1g" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1w-1b-1s" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1w-1b-1s" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1w-1s-1g" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1w-1s-1g" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1w-2b" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-1w-2s" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-2b-1g" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-2b-1g" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-2s-1g" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-2w-1b" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-2w-1g" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-2w-1s" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-4res-1t" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-4res-2t" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-4res-3t" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-4res-4t" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-5res-1t" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-5res-2t" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-5res-3t" },
+  { id: uuidv4(), type: "huts", imgURL: "hut-5res-5t" }
 ];
 export const allCards = () => {
   const { figure, field, pot, branch, tablet, clock, cart, flute } = artifacts;
@@ -81,12 +91,37 @@ export const allCards = () => {
 
   return {
     agriM: [
-      { type: "agri", value: 2, extra: ROLL, imgURL: "agri-2-ex-roll" },
-      { type: "agri", value: 2, extra: FOOD3, imgURL: "agri-2-ex-f3" },
-      { type: "agri", value: 1, extra: ROLL, imgURL: "agri-1-ex-roll" },
-      { type: "agri", value: 1, extra: AGRILVL, imgURL: "agri-1-ex-plusagri" },
       {
-        type: "agri",
+        id: uuidv4(),
+        type: "agriM",
+        value: 2,
+        extra: ROLL,
+        imgURL: "agri-2-ex-roll"
+      },
+      {
+        id: uuidv4(),
+        type: "agriM",
+        value: 2,
+        extra: FOOD3,
+        imgURL: "agri-2-ex-f3"
+      },
+      {
+        id: uuidv4(),
+        type: "agriM",
+        value: 1,
+        extra: ROLL,
+        imgURL: "agri-1-ex-roll"
+      },
+      {
+        id: uuidv4(),
+        type: "agriM",
+        value: 1,
+        extra: AGRILVL,
+        imgURL: "agri-1-ex-plusagri"
+      },
+      {
+        id: uuidv4(),
+        type: "agriM",
         value: 1,
         extra: RESOURCE({ resType: "stone", amount: 1 }),
         imgURL: "agri-1-ex-1stone"
@@ -94,45 +129,110 @@ export const allCards = () => {
     ],
     huts: huts,
     hutsM: [
-      { type: "huts", value: 3, extra: POINTS, imgURL: "hutM-3-ex-3points" },
-      { type: "huts", value: 2, extra: ROLL, imgURL: "hutM-2-ex-roll" },
-      { type: "huts", value: 2, extra: FOOD2, imgURL: "hutM-2-ex-f2" },
-      { type: "huts", value: 1, extra: ROLL, imgURL: "hutM-1-ex-roll" },
-      { type: "huts", value: 1, extra: FOOD4, imgURL: "hutM-1-ex-f4" }
+      {
+        id: uuidv4(),
+        type: "hutsM",
+        value: 3,
+        extra: POINTS,
+        imgURL: "hutM-3-ex-3points"
+      },
+      {
+        id: uuidv4(),
+        type: "hutsM",
+        value: 2,
+        extra: ROLL,
+        imgURL: "hutM-2-ex-roll"
+      },
+      {
+        id: uuidv4(),
+        type: "hutsM",
+        value: 2,
+        extra: FOOD2,
+        imgURL: "hutM-2-ex-f2"
+      },
+      {
+        id: uuidv4(),
+        type: "hutsM",
+        value: 1,
+        extra: ROLL,
+        imgURL: "hutM-1-ex-roll"
+      },
+      {
+        id: uuidv4(),
+        type: "hutsM",
+        value: 1,
+        extra: FOOD4,
+        imgURL: "hutM-1-ex-f4"
+      }
     ],
     toolsM: [
-      { type: "tools", value: 2, extra: ROLL, imgURL: "tool-2-ex-roll" },
-      { type: "tools", value: 2, extra: ROLL, imgURL: "tool-2-ex-roll" },
-      { type: "tools", value: 2, extra: TOOLS2, imgURL: "tool-2-ex-2tools" },
-      { type: "tools", value: 1, extra: TOOLS3, imgURL: "tool-1-ex-3tools" },
-      { type: "tools", value: 1, extra: TOOLS4, imgURL: "tool-1-ex-4tools" }
+      {
+        id: uuidv4(),
+        type: "tools",
+        value: 2,
+        extra: ROLL,
+        imgURL: "tool-2-ex-roll"
+      },
+      {
+        id: uuidv4(),
+        type: "toolsM",
+        value: 2,
+        extra: ROLL,
+        imgURL: "tool-2-ex-roll"
+      },
+      {
+        id: uuidv4(),
+        type: "toolsM",
+        value: 2,
+        extra: TOOLS2,
+        imgURL: "tool-2-ex-2tools"
+      },
+      {
+        id: uuidv4(),
+        type: "toolsM",
+        value: 1,
+        extra: TOOLS3,
+        imgURL: "tool-1-ex-3tools"
+      },
+      {
+        id: uuidv4(),
+        type: "toolsM",
+        value: 1,
+        extra: TOOLS4,
+        imgURL: "tool-1-ex-4tools"
+      }
     ],
     meepleM: [
       {
-        type: "meepels",
+        id: uuidv4(),
+        type: "meepleM",
         value: 2,
         extra: RESOURCE({ resType: "wood", amountOfDies: 2 }),
         imgURL: "meeple-2-ex-rollwood"
       },
       {
-        type: "meepels",
+        id: uuidv4(),
+        type: "meepleM",
         value: 2,
         extra: RESOURCE({ resType: "brick", amount: 1 }),
         imgURL: "meeple-2-ex-1brick"
       },
       {
-        type: "meepels",
+        id: uuidv4(),
+        type: "meepleM",
         value: 1,
         extra: RESOURCE({ resType: "stone", amountOfDies: 2 }),
         imgURL: "meeple-1-ex-rollstone"
       },
       {
-        type: "meepels",
+        id: uuidv4(),
+        type: "meepleM",
         value: 1,
         extra: RESOURCE({ resType: "gold", amount: 1 }),
         imgURL: "meeple-1-ex-1gold"
       },
       {
+        id: uuidv4(),
         type: "meeple",
         value: 1,
         extra: RESOURCE({ resType: "stone", amount: 1 }),
@@ -143,30 +243,58 @@ export const allCards = () => {
     // since i will calculate as num of cards * arti multi
     // and arti multi === num of cards any way
     artiOneM: [
-      { type: "arti", value: pot, extra: ROLL, imgURL: "arti-pot-ex-roll" },
       {
-        type: "arti",
+        id: uuidv4(),
+        type: "artiOneM",
+        value: pot,
+        extra: ROLL,
+        imgURL: "arti-pot-ex-roll"
+      },
+      {
+        id: uuidv4(),
+        type: "artiOneM",
         value: branch,
         extra: ROLL,
         imgURL: "arti-branch-ex-2res"
       }, // to be changed to a special function to GIVE resource
-      { type: "arti", value: cart, extra: ROLL, imgURL: "arti-cart-ex-roll" },
       {
-        type: "arti",
+        id: uuidv4(),
+        type: "artiOneM",
+        value: cart,
+        extra: ROLL,
+        imgURL: "arti-cart-ex-roll"
+      },
+      {
+        id: uuidv4(),
+        type: "artiOneM",
         value: figure,
         extra: RESOURCE({ resType: "gold", amountOfDies: 2 }),
         imgURL: "arti-figure-ex-rollgold"
       },
-      { type: "arti", value: clock, extra: ROLL, imgURL: "arti-clock-ex-roll" },
       {
-        type: "arti",
+        id: uuidv4(),
+        type: "artiOneM",
+        value: clock,
+        extra: ROLL,
+        imgURL: "arti-clock-ex-roll"
+      },
+      {
+        id: uuidv4(),
+        type: "artiOneM",
         value: tablet,
         extra: ROLL,
         imgURL: "arti-tablet-ex-roll"
       },
-      { type: "arti", value: field, extra: FOOD1, imgURL: "arti-field-ex-f1" },
       {
-        type: "arti",
+        id: uuidv4(),
+        type: "artiOneM",
+        value: field,
+        extra: FOOD1,
+        imgURL: "arti-field-ex-f1"
+      },
+      {
+        id: uuidv4(),
+        type: "artiOneM",
         value: flute,
         extra: POINTS,
         imgURL: "arti-flute-ex-3points"
@@ -175,41 +303,60 @@ export const allCards = () => {
     // called this artiTwoM => arti multiplyer.
     // since i will calculate as num of cards * arti multi
     // and arti multi === num of cards any way
+
     artiTwoM: [
-      { type: "arti", value: pot, extra: FOOD7, imgURL: "arti-pot-ex-f7" },
       {
-        type: "arti",
+        id: uuidv4(),
+        type: "artiTwoM",
+        value: pot,
+        extra: FOOD7,
+        imgURL: "arti-pot-ex-f7"
+      },
+      {
+        id: uuidv4(),
+        type: "artiTwoM",
         value: branch,
         extra: FOOD5,
         imgURL: "arti-branch-ex-f5"
       },
       {
-        type: "arti",
+        id: uuidv4(),
+        type: "artiTwoM",
         value: cart,
         extra: RESOURCE({ resType: "stone", amount: 2 }),
         imgURL: "arti-cart-ex-2stone"
       },
       {
-        type: "arti",
+        id: uuidv4(),
+        type: "artiTwoM",
         value: figure,
         extra: TOOLSLVL,
         imgURL: "arti-figure-ex-plustool"
       },
       {
-        type: "arti",
+        id: uuidv4(),
+        type: "artiTwoM",
         value: clock,
         extra: AGRILVL,
         imgURL: "arti-clock-ex-plusagri"
       },
       {
-        type: "arti",
+        id: uuidv4(),
+        type: "artiTwoM",
         value: tablet,
         extra: EXTRACARD,
         imgURL: "arti-tablet-ex-pluscard"
       },
-      { type: "arti", value: field, extra: FOOD3, imgURL: "arti-field-ex-f3" },
       {
-        type: "arti",
+        id: uuidv4(),
+        type: "artiTwoM",
+        value: field,
+        extra: FOOD3,
+        imgURL: "arti-field-ex-f3"
+      },
+      {
+        id: uuidv4(),
+        type: "artiTwoM",
         value: flute,
         extra: POINTS,
         imgURL: "arti-flute-ex-3points"

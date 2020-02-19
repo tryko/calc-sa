@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <Board :cardOwners="cardOwners" />
+      <Board :cardOwners="cardOwners" :currentPlayerName="currentPlayerName" />
     </div>
   </div>
 </template>
@@ -11,21 +11,14 @@ import {
   mapState,
   } from "vuex";
 import Board from "./components/Board.vue";
-// import PlayerBoard from "./components/PlayerBoard.vue";
 
 export default {
   components: {
     Board,
-    // PlayerBoard
   },
   computed: {
-    ...mapState(["cardOwners"]),
-    // ...mapGetters(['getDeckCards','getPlayerCards'])
+    ...mapState(["cardOwners","currentPlayerName"]),
   },
-  mounted() {
-    console.log(this.DeckCards);
-    // console.log('huts::',this.huts);
-  }
 };
 </script>
 
