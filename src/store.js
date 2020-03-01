@@ -6,22 +6,34 @@ import { playerOneCards, playerTwoCards } from "./types/playerCards";
 
 Vue.use(Vuex);
 
+const setMultiplyer = () => {
+  const multipyler = {};
+  for (let type in CARD_TYPES) {
+    multipyler[type] = 0;
+  }
+  return multipyler;
+};
+
 const state = {
   currentPlayerName: "playerOne",
   cardOwners: {
     deck: { id: uuidv4(), name: "Deck", ownerType: "deck", cards: allCards() },
     playerOne: {
       id: uuidv4(),
+      ...setMultiplyer(),
+      playerMultiPlyer: { ...setMultiplyer() },
+      playerCardsValue: { ...setMultiplyer() },
       name: "Player-1",
       ownerType: "player",
-      ...CARD_TYPES,
       cards: playerOneCards
     },
     playerTwo: {
       id: uuidv4(),
+      ...setMultiplyer(),
+      playerMultiPlyer: { ...setMultiplyer() },
+      playerCardsValue: { ...setMultiplyer() },
       name: "Player-2",
       ownerType: "player",
-      ...CARD_TYPES,
       cards: playerTwoCards
     }
   }
@@ -39,16 +51,45 @@ export default new Vuex.Store({
       const owner = clickedCard.owner;
       const type = clickedCard.type;
       const currPlayer = state.currentPlayerName;
+      const ownerCards = state.cardOwners[owner].cards[type];
+      // adding card to player
       if (clickedCard.owner === "deck") {
-        state.cardOwners[owner].cards[type] = state.cardOwners[owner].cards[
-          type
-        ].filter(card => {
+        state.cardOwners[owner].cards[type] = ownerCards.filter(card => {
           if (card.id === clickedCard.id) {
             state.cardOwners[currPlayer].cards[type].push(card);
-            return false;
           } else return true;
         });
+      } // remove card from player and back to deck
+    },
+
+    addingScore(state, clickedCard) {
+      const type = clickedCard.type;
+      const player = clickedCard.player;
+      const cardOwner = state.cardOwners[player];
+      const playerMultiPlyer = cardOwner.playerMultiPlyer[type];
+      const playerCardsValue = cardOwner.playerCardsValue[type];
+      if (type === "artiOneM" || type === "artiTwoM") {
+        cardOwner[type] = cardOwner.cards[type].length ** 2;
+      } else if (type === "hutsM") {
+        cardOwner[type] = playerCardsValue * cardOwner.cards["huts"].length;
+      } else if (type === "huts") {
+        // need to calculate the hutsM score and the huts score at the same go.
+        cardOwner["hutsM"] =
+          cardOwner.playerCardsValue["hutsM"] * cardOwner.cards["huts"].length;
+        cardOwner[type] += clickedCard.value;
+      } else {
+        cardOwner[type] = playerCardsValue * playerMultiPlyer;
       }
+    },
+    addToTypeMultiplyer(state, selectorClicked) {
+      const player = selectorClicked.player;
+      const type = selectorClicked.type;
+      state.cardOwners[player].playerMultiPlyer[type] = selectorClicked.value;
+    },
+    addValueToCards(state, clickedCard) {
+      const currPlayer = state.currentPlayerName;
+      const type = clickedCard.type;
+      state.cardOwners[currPlayer].playerCardsValue[type] += clickedCard.value;
     },
     changePlayer(state) {
       state.currentPlayerName =
@@ -56,15 +97,4 @@ export default new Vuex.Store({
     }
   },
   getters
-  // actions: {
-  //   changePlayer(context) {
-  //     context.commit("changePlayer");
-  //   },
-  //   addCardToPlayer(context, clickedCard) {
-  //     console.log("s");
-  //     setTimeout(() => {
-  //       context.commit("addCardToPlayer", clickedCard);
-  //     }, 1000);
-  //   }
-  // }
 });

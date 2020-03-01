@@ -9,11 +9,14 @@
       <p :class="currentPlayerName === key ? 'curr-player' : ''">
         {{ owner.name }}
       </p>
+      <PlayerSelectors :types="multiplyerCardsTypes" :player="key" />
       <div v-for="(type, i) in multiplyerCardsTypes" :key="i">
         <MultiplyerCards
           :cards="owner.cards[type]"
           :cardsType="type"
           :owner="key"
+          :typeScore="owner[type]"
+          :player="currentPlayerName"
         />
       </div>
     </div>
@@ -23,6 +26,7 @@
 
 <script lang="js">
 import MultiplyerCards from "./MultiplyerCards.vue";
+import PlayerSelectors from './playerSelectors';
 import {CARD_TYPES} from './../types/enums.js'
 export default {
   props: ["cardOwners","currentPlayerName"],
@@ -32,7 +36,8 @@ export default {
     };
   },
   components: {
-    MultiplyerCards
+    MultiplyerCards,
+    PlayerSelectors
   },
   mounted(){
     window.addEventListener('keypress',this.changePlayer)
@@ -61,7 +66,7 @@ export default {
   max-width: 405px;
 }
 .cards-container-player {
-  min-width: 300px;
+  min-width: 410px;
 }
 .curr-player {
   background-color: black;

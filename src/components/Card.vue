@@ -12,7 +12,7 @@
 
 <script lang="ts">
 export default {
-  props: ["id", "value", "type", "owner", "imgURL"],
+  props: ["id", "value", "type", "owner", "imgURL", "player"],
   data() {
     return {
       img: require(`./../assets/${this.imgURL}.png`),
@@ -21,12 +21,16 @@ export default {
   },
   methods: {
     cardClicked() {
-      this.$store.commit("addCardToPlayer", {
+      const cardClicked = {
         id: this.id,
         type: this.type,
         value: this.value,
-        owner: this.owner
-      });
+        owner: this.owner,
+        player: this.player
+      };
+      this.$store.commit("addCardToPlayer", cardClicked);
+      this.$store.commit("addValueToCards", cardClicked);
+      this.$store.commit("addingScore", cardClicked);
     }
   },
   computed: {
